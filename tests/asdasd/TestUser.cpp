@@ -1,0 +1,56 @@
+#include "User.h"
+
+/*
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
+
+class TestUser : public User {
+public:
+	bool TestGetId();
+	bool TestGetLogin();
+	bool TestSetId();
+	bool TestSetKey();
+	bool TestSetLogin()
+};
+
+bool TestUser::TestGetId() {
+	int a = 2;
+	SetId(a);
+
+}
+
+bool TestUser::TestGetLogin() {
+
+}
+
+bool TestUser::TestSetId() {
+
+}
+
+bool TestUser::TestSetKey() {
+
+}
+
+bool TestUser::TestSetLogin() {
+
+}
+
+class User {
+private:
+	long long id;
+	long long identificationKey;
+	UnicodeString login;
+
+public:
+	User();
+	~User();
+	User(const User& other);
+	User& operator=(const User& other);
+
+	long long GetId();
+	UnicodeString GetLogin();
+
+	void SetId(const long long value);
+	void SetIdKey(long long value);
+	void SetLogin(UnicodeString loginStr);
+};          */

@@ -1,0 +1,22 @@
+#ifndef UserH
+#define UserH
+
+class User {
+private:
+	long long id;
+	std::string login;
+	std::string password;
+
+public:
+	User();
+	~User();
+	User(const User& other);
+	User& operator=(const User& other);
+
+	void set_id(const long long value);
+	long long get_id();
+	std::string get_login();
+	std::string get_password();
+};
+
+#endif

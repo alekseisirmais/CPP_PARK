@@ -1,0 +1,31 @@
+#include "User.h"
+
+User::User() {
+	id = -1;
+    key = 0;
+	login = "";
+}
+
+User::~User() {}
+
+User::User(const User& other) {
+	id = other.id;
+	login = other.login;
+}
+
+User& User::operator=(const User& other) {
+	id = other.id;
+	login = other.login;
+}
+
+void User::set_id(const long long value) {
+	id = value;
+}
+
+long long User::get_id() {
+	return id;
+}
+
+UnicodeString User::get_login() {
+	return login;
+}

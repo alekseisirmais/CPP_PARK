@@ -1,0 +1,16 @@
+#ifndef UsbH
+#define UsbH
+
+#include <fmx.h>
+
+class Usb {
+private:
+
+public:
+	Usb();
+	~Usb();
+	Usb(const Usb& other);
+	Usb& operator=(const Usb& other);
+}
+
+#endif

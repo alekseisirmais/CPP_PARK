@@ -1,0 +1,37 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 24.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 337.000000000000000000
+    Size.Height = 313.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 333.000000000000000000
+    Viewport.Height = 309.000000000000000000
+  end
+  object Button1: TButton
+    Position.X = 376.000000000000000000
+    Position.Y = 48.000000000000000000
+    TabOrder = 1
+    Text = 'Add String'
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Position.X = 376.000000000000000000
+    Position.Y = 96.000000000000000000
+    TabOrder = 2
+    Text = 'Clear Memo'
+    OnClick = Button2Click
+  end
+end

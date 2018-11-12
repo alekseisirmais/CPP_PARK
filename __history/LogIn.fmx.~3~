@@ -1,0 +1,52 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Password = True
+    Position.X = 216.000000000000000000
+    Position.Y = 192.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label2: TLabel
+    Position.X = 152.000000000000000000
+    Position.Y = 192.000000000000000000
+    Size.Width = 88.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Password: '
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Position.X = 376.000000000000000000
+    Position.Y = 192.000000000000000000
+    TabOrder = 2
+    Text = 'log in'
+    OnClick = Button1Click
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 216.000000000000000000
+    Position.Y = 160.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Position.X = 152.000000000000000000
+    Position.Y = 160.000000000000000000
+    Text = 'Username:'
+    TabOrder = 5
+  end
+end

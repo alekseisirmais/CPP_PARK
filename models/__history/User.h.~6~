@@ -1,0 +1,23 @@
+#ifndef UserH
+#define UserH
+
+#include <fmx.h>
+
+class User {
+private:
+	long long id;
+	long long key;
+	UnicodeString login;
+
+public:
+	User();
+	~User();
+	User(const User& other);
+	User& operator=(const User& other);
+
+	void set_id(const long long value);
+	long long get_id();
+	UnicodeString get_login();
+};
+
+#endif

@@ -1,0 +1,37 @@
+#include "User.hpp"
+
+User::User() {
+	id = -1;
+	login = "";
+	password = "";
+}
+
+~User() {}
+
+User::User(const User& other) {
+	id = other.id;
+	login = other.login;
+	password =other.password;
+}
+
+User& User::operator=(const User& other) {
+	id = other.id;
+	login = other.login;
+	password = other.password;
+}
+
+void User::set_id(const long long value) {
+	id = value;
+}
+
+long long User::get_id() {
+	return id;
+}
+
+std::string User::get_login() {
+	return login;
+}
+
+std::string User::get_password() {
+	return password;
+}

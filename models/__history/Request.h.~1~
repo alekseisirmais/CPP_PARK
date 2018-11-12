@@ -1,0 +1,21 @@
+#ifndef RequestH
+#define RequestH
+
+enum {
+	GET_USER_INFO,
+	GET_USB_DEVICES_INFO,
+	ADD_NEW_USER,
+	ADD_NEW_USB_DEVICE,
+	DELETE_USER,
+	DELETE_USB_DEVICE
+};
+
+class Request {
+public:
+	Request();
+	~Request();
+	Request(const Request& other);
+	Request& operator=(const Request& other);
+}
+
+#endif
