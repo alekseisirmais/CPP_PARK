@@ -20,11 +20,12 @@
     <Transaction>2018/11/12 07:08:04.000.361,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit3.cpp=C:\Users\rakhi\Desktop\project_c\CPP_PARK\ViewLogs.cpp</Transaction>
     <Transaction>2018/11/12 07:08:04.000.361,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit3.h=C:\Users\rakhi\Desktop\project_c\CPP_PARK\ViewLogs.h</Transaction>
     <Transaction>2018/11/12 07:08:04.000.361,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit3.fmx=C:\Users\rakhi\Desktop\project_c\CPP_PARK\ViewLogs.fmx</Transaction>
-    <Transaction>2018/11/12 07:46:28.583,=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.cpp</Transaction>
-    <Transaction>2018/11/12 07:46:50.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.h=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.h</Transaction>
-    <Transaction>2018/11/12 07:46:50.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.cpp=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.cpp</Transaction>
-    <Transaction>2018/11/12 07:46:50.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.fmx=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.fmx</Transaction>
-  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <Transaction>2018/11/12 07:46:28.000.583,=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.cpp</Transaction>
+    <Transaction>2018/11/12 07:46:50.000.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.h=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.h</Transaction>
+    <Transaction>2018/11/12 07:46:50.000.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.fmx=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.fmx</Transaction>
+    <Transaction>2018/11/12 07:46:50.000.607,C:\Users\rakhi\Desktop\project_c\CPP_PARK\Settings.cpp=C:\Users\rakhi\Desktop\project_c\CPP_PARK\Unit4.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="android-support-v4.dex.jar"/>
     <File Path="cloud-messaging.dex.jar"/>
     <File Path="fmx.dex.jar"/>

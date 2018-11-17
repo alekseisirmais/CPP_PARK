@@ -138,7 +138,7 @@
         <AUP_READ_PHONE_STATE>true</AUP_READ_PHONE_STATE>
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\cbuilder_PROJECTICNS.icns</Icns_MainIcns>
-        <AllPackageLibs>rtl.lib;fmx.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;fmx.lib;inet.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <IncludePath>..\..\..\..\Desktop\CPP_PARK\;$(IncludePath)</IncludePath>
@@ -320,7 +320,7 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
-        <LinkPackageImports>rtl.bpi;fmx.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;fmx.bpi;inet.bpi</LinkPackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -379,10 +379,10 @@
             <DependentOn>ViewLogs.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
-        <FormResources Include="ViewLogs.fmx"/>
         <FormResources Include="SecurityPolicySettings.fmx"/>
-        <FormResources Include="LogIn.fmx"/>
         <FormResources Include="Settings.fmx"/>
+        <FormResources Include="ViewLogs.fmx"/>
+        <FormResources Include="LogIn.fmx"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

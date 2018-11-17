@@ -31,16 +31,16 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		f2->Left = this->Left;
 		f2->Top = this->Top;
 
-		Form1->Hide();
 		Edit1->Text = "";
 		Edit2->Text = "";
+		this->Hide();
 
 		f2->ShowModal();
 		Form1->Left = f2->Left;
 		Form1->Top = f2->Top;
 		delete f2;
 
-		Form1->Show();
+		this->Close();
 	} else {
 		ShowMessage("Your username or password is incorrect");
     }

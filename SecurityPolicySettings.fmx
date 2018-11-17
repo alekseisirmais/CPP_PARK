@@ -42,4 +42,18 @@ object Form2: TForm2
     Text = 'Clear'
     OnClick = Button2Click
   end
+  object MenuBar1: TMenuBar
+    Size.Width = 640.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object ViewLogs: TMenuItem
+      Text = 'View logs'
+      OnClick = ViewLogsClick
+    end
+    object Settings: TMenuItem
+      Text = 'Settings'
+      OnClick = SettingsClick
+    end
+  end
 end

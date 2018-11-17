@@ -14,3 +14,12 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+
+void __fastcall TForm3::FormCreate(TObject *Sender)
+{
+	WebBrowser1->URL = "models\c++ builder twsdl htmlpublish - Google Search";
+}
+//---------------------------------------------------------------------------
+
+
