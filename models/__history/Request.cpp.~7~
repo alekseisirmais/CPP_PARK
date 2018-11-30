@@ -1,7 +1,0 @@
-#include "Request.h"
-
-int MakeRequest(User user, int id) {
-	switch(id) {
-
-    }
-}

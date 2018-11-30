@@ -1,6 +1,0 @@
-#include "Request.h"
-
-Request::Request() {};
-Request::~Request() {};
-Requst::Request(const Request& other) {};
-Request& Request::operator=(const Request& other) {};

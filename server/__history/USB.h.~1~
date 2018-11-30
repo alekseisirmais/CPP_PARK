@@ -1,0 +1,17 @@
+
+//---------------------------------------------------------------------------
+
+#ifndef USBH
+#define USBH
+//---------------------------------------------------------------------------
+struct USB {
+	int vid;
+	int pid;
+	bool isEjected;
+	USB(int _vid, int _pid);
+	const bool operator != (const USB &_usb);
+	const bool operator == (const USB &_usb);
+};
+
+
+#endif
