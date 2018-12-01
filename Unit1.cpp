@@ -170,13 +170,3 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 
 //---------------------------------------------------------------------------
 
-
-void __fastcall TForm1::Button6Click(TObject *Sender)
-{
-	int vid = 58;
-	int pid = 6387;
-	USB usb(vid, pid);
-	AddUsbToDatabase(USBDatabaseName, usb);
-}
-//---------------------------------------------------------------------------
-

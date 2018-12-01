@@ -38,7 +38,6 @@ __published:	// IDE-managed Components
 	void __fastcall MyOnClientConnectEvent(TObject *Sender, TCustomWinSocket *Socket);
 	void __fastcall Button5Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
-	void __fastcall Button6Click(TObject *Sender);
 
 
 private:	// User declarations

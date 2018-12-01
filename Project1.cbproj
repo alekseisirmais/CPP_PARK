@@ -58,8 +58,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>..\..\..\..\Рабочий стол\My_Project(rad studio)\server\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>..\..\..\..\Рабочий стол\My_Project(rad studio)\server\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>includes\;..\..\..\..\Рабочий стол\My_Project(rad studio)\server\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>includes\;..\..\..\..\Рабочий стол\My_Project(rad studio)\server\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>Project1</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -71,7 +71,6 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <BCC_PCHName_Clang>Project1PCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
@@ -109,12 +108,23 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
-        <BCC_PCHName_Clang>Project1PCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="db_requests.cpp">
-            <DependentOn>db_requests.h</DependentOn>
+        <CppCompile Include="includes\db_requests.cpp">
+            <DependentOn>includes\db_requests.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="includes\settings.cpp">
+            <DependentOn>includes\settings.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="includes\USB.cpp">
+            <DependentOn>includes\USB.h</DependentOn>
             <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="includes\win_requests.cpp">
+            <DependentOn>includes\win_requests.h</DependentOn>
+            <BuildOrder>6</BuildOrder>
         </CppCompile>
         <CppCompile Include="Project1.cpp">
             <BuildOrder>0</BuildOrder>
@@ -123,23 +133,11 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <CppCompile Include="settings.cpp">
-            <DependentOn>settings.h</DependentOn>
-            <BuildOrder>6</BuildOrder>
-        </CppCompile>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
             <DependentOn>Unit1.h</DependentOn>
             <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="USB.cpp">
-            <DependentOn>USB.h</DependentOn>
-            <BuildOrder>3</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="win_requests.cpp">
-            <DependentOn>win_requests.h</DependentOn>
-            <BuildOrder>4</BuildOrder>
         </CppCompile>
         <FormResources Include="Unit1.dfm"/>
         <BuildConfiguration Include="Release">
