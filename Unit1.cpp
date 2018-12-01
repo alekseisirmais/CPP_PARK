@@ -144,7 +144,7 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 		GetUSBVidAndPid(szDeviceInstanceID, vid, pid);
 		USB usb(vid, pid);
 
-		if (USBIsOnDatabase(USBDatabaseName, usb)) {
+		if (USBIsOnDatabase(usb)) {
 			continue;
 		}
 
@@ -168,5 +168,15 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 	SetupDiDestroyDeviceInfoList(deviceInfoSet);
 }
 
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+	int vid = 58;
+	int pid = 6387;
+	USB usb(vid, pid);
+	AddUsbToDatabase(usb);
+}
 //---------------------------------------------------------------------------
 
