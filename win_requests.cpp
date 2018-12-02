@@ -36,10 +36,6 @@ HDEVINFO GetConnectedDevicesHandle()
 		// настоящее время присутствуют в системе.
 		DIGCF_ALLCLASSES | DIGCF_PRESENT
 	);
-	if (deviceInfoSet == INVALID_HANDLE_VALUE) {
-		error = GetLastError();
-		return NULL;
-	}
 	return deviceInfoSet;
 }
 
