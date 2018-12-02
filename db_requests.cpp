@@ -75,7 +75,7 @@ int DeleteUsbFromDatabase(USB &usb) {
 		int vid = StrToInt(str.SubString(1, SpacePlaceInt - 1));
 		//AnsiStrings always start with 1 and not 0
 		int pid = StrToInt(str.SubString(SpacePlaceInt + 1, StrLenInt));
-		USB _usb(vid, pid);
+		USB _usb(USB_HAS_NO_DEVINST, vid, pid);
 		if (_usb == usb) {
 			deletingStringIndex = i;
 			break;

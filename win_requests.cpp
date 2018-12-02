@@ -61,7 +61,7 @@ std::vector<USB> GetConnectedUsbList(const HDEVINFO &deviceInfoSet)
 	ZeroMemory(&deviceInfoData, sizeof(SP_DEVINFO_DATA));
 	deviceInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
 
-	for (DWORD i = 0; ; i++) {
+    	for (DWORD i = 0; ; i++) {
 		deviceInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
 		if (!SetupDiEnumDeviceInfo(deviceInfoSet, i, &deviceInfoData)) {
 			break;
@@ -89,6 +89,37 @@ std::vector<USB> GetConnectedUsbList(const HDEVINFO &deviceInfoSet)
 		USB usb(deviceInfoData.DevInst, vid, pid);
 		USBlist.push_back(usb);
 	}
+	SetupDiDestroyDeviceInfoList(deviceInfoSet);
+   /*
 
+
+	for (DWORD i = 0; ; i++) {
+		if (!SetupDiEnumDeviceInfo(deviceInfoSet, i, &deviceInfoData)) {
+			break;
+		}
+
+		CONFIGRET status = CM_Get_Device_ID(deviceInfoData.DevInst, szDeviceInstanceID , MAX_PATH, 0);
+		if (status != CR_SUCCESS) {
+			continue;
+		}
+
+
+		if (SetupDiGetDeviceRegistryProperty(deviceInfoSet, &deviceInfoData, SPDRP_DEVICEDESC,
+											  &dwPropertyRegDataType, (BYTE*)szDesc,
+											  sizeof(szDesc),   // The size, in bytes
+											  &dwSize)) {
+		}
+
+		if (WideCharToString(szDesc) != "USB Mass Storage Device") {
+			continue;
+		}
+
+		int vid = 0;
+		int pid = 0;
+		GetUSBVidAndPid(szDeviceInstanceID, vid, pid);
+		USB usb(deviceInfoData.DevInst, vid, pid);
+		USBlist.push_back(usb);
+	}
+     */
 	return USBlist;
 }

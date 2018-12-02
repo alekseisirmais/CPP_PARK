@@ -6,15 +6,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-USB::USB(const int &_vid, const int &_pid) {
-	DEVINST devInst = USB_HAS_NO_DEVINST;
-	vid = _vid;
-	pid = _pid;
-}
-
 
 USB::USB(const DEVINST &_devInst, const int &_vid, const int &_pid) {
-	DEVINST devInst = _devInst;
+	devInst = _devInst;
 	vid = _vid;
 	pid = _pid;
 }

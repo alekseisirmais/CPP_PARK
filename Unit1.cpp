@@ -1,4 +1,4 @@
-#include <vcl.h>
+ï»¿#include <vcl.h>
 
 #pragma hdrstop
 
@@ -60,27 +60,28 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-	HDEVINFO deviceInfoSet = GetConnectedDevicesHandle();
-	if (deviceInfoSet == INVALID_HANDLE_VALUE) {
-        SetupDiDestroyDeviceInfoList(deviceInfoSet);
+	HDEVINFO deviceInfoSet0 = GetConnectedDevicesHandle();
+	if (deviceInfoSet0 == INVALID_HANDLE_VALUE) {
+		SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 		Memo1->Lines->Add("Error: INVALID_HANDLE_VALUE");
 		return;
 	}
 
-	std::vector<USB> USBList = GetConnectedUsbList(deviceInfoSet);
+	std::vector<USB> USBList = GetConnectedUsbList(deviceInfoSet0);
 	if (USBList.empty()) {
 		Memo1->Lines->Add("USB devices not found");
-		SetupDiDestroyDeviceInfoList(deviceInfoSet);
+		SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 		return;
 	}
 
 	for (size_t i = 0; i < USBList.size(); i++) {
-		Memo1->Lines->Add("USB ñonnected listÆ");
-		Memo1->Lines->Add("   USB " + IntToStr((int)(i + 1)) + ":");
+		Memo1->Lines->Add("USB Ñonnected list:");
+		Memo1->Lines->Add("   USB [" + IntToStr((int)i) + "] :");
+		Memo1->Lines->Add("      devInst: " + IntToStr((int)USBList[i].devInst));
 		Memo1->Lines->Add("      VID: " + IntToStr(USBList[i].vid));
 		Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
 	}
-	SetupDiDestroyDeviceInfoList(deviceInfoSet);
+	SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 }
 
 //---------------------------------------------------------------------------
@@ -94,43 +95,42 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-	while (isRunning) {
-		HDEVINFO deviceInfoSet = GetConnectedDevicesHandle();
-		if (deviceInfoSet == INVALID_HANDLE_VALUE) {
-			Memo1->Lines->Add("Error: INVALID_HANDLE_VALUE");
-            SetupDiDestroyDeviceInfoList(deviceInfoSet);
-			return;
-		}
-		std::vector<USB> USBList = GetConnectedUsbList(deviceInfoSet);
-
-		for (size_t i = 0; i < USBList.size(); i++) {
-			USB usb = USBList[i];
-			int vid = usb.vid;
-            int pid = usb.pid;
-
-			if (USBIsOnDatabase(usb)) {
-				continue;
-			}
-
-			DEVINST DevInstParent = usb.devInst;
-			WCHAR VetoNameW[MAX_PATH];
-			PNP_VETO_TYPE VetoType = PNP_VetoTypeUnknown;
-			for ( long tries=1; tries <= 10; tries++ ) {
-				VetoNameW[0] = 0;
-				CONFIGRET res = CM_Request_Device_EjectW(DevInstParent,
-					&VetoType, VetoNameW, MAX_PATH, 0);
-
-				bool bSuccess = ( res==CR_SUCCESS &&
-					VetoType==PNP_VetoTypeUnknown );
-				if ( bSuccess )  {
-					Memo1->Lines->Add("USB(" + IntToStr(vid) + ", " + IntToStr(pid) + ") ejected");
-					break;
-				}
-				Sleep(5);
-			}
-		}
-		SetupDiDestroyDeviceInfoList(deviceInfoSet);
+	HDEVINFO deviceInfoSet0 = GetConnectedDevicesHandle();
+	if (deviceInfoSet0 == INVALID_HANDLE_VALUE) {
+		Memo1->Lines->Add("Error: INVALID_HANDLE_VALUE");
+		SetupDiDestroyDeviceInfoList(deviceInfoSet0);
+		return;
 	}
+	std::vector<USB> USBList = GetConnectedUsbList(deviceInfoSet0);
+	for (size_t i = 0; i < USBList.size(); i++) {
+		USB usb = USBList[i];
+		int vid = usb.vid;
+		int pid = usb.pid;
+		if (USBIsOnDatabase(usb)) {
+			continue;
+		}
+		DEVINST DevInstParent = usb.devInst;
+		Memo1->Lines->Add(DevInstParent);
+		WCHAR VetoNameW[MAX_PATH];
+		PNP_VETO_TYPE VetoType = PNP_VetoTypeUnknown;
+		for ( long tries=1; tries <= 10; tries++ ) {
+			VetoNameW[0] = 0;
+			CONFIGRET res = CM_Request_Device_EjectW(DevInstParent,
+				&VetoType, VetoNameW, MAX_PATH, 0);
+
+			bool bSuccess = ( res==CR_SUCCESS &&
+			VetoType==PNP_VetoTypeUnknown );
+			if ( bSuccess )  {
+				Memo1->Lines->Add("USB ejected:");
+				Memo1->Lines->Add("      devInst: " + IntToStr((int)USBList[i].devInst));
+				Memo1->Lines->Add("      VID: " + IntToStr(USBList[i].vid));
+				Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
+				break;
+			}
+			Sleep(5);
+		}
+	}
+	SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 }
 //---------------------------------------------------------------------------
 
