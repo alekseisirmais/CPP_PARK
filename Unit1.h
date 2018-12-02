@@ -14,13 +14,16 @@
 #include <initguid.h>
 #include <winioctl.h>
 #include <windows.h>
+
 #include <vector>
 #include <string>
+#include <thread>
 
 #include "USB.h"
 #include "win_requests.h"
 #include "db_requests.h"
 #include "settings.h"
+#include "thread.h"
 //---------------------------------------------------------------------------
 
 class TForm1 : public TForm
@@ -30,17 +33,16 @@ __published:	// IDE-managed Components
 	TServerSocket *ServerSocket1;
 	TButton *Button1;
 	TButton *Button2;
-	TButton *Button5;
-	TButton *Button6;
+	TButton *Button4;
 	TButton *Button3;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
+    void __fastcall Button3Click(TObject *Sender);
+	void __fastcall Button4Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MyOnClientConnectEvent(TObject *Sender, TCustomWinSocket *Socket);
-	void __fastcall Button5Click(TObject *Sender);
-	void __fastcall Button6Click(TObject *Sender);
-	void __fastcall Button3Click(TObject *Sender);
 
+	void __fastcall EjectUnregisteredUSB();
 
 private:	// User declarations
 public:		// User declarations

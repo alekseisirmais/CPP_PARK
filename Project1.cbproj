@@ -127,6 +127,10 @@
             <DependentOn>settings.h</DependentOn>
             <BuildOrder>6</BuildOrder>
         </CppCompile>
+        <CppCompile Include="thread.cpp">
+            <DependentOn>thread.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>

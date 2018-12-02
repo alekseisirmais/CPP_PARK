@@ -20,12 +20,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
+	RunThread *runThr = new RunThread(true);
+    runThr->Start();
 	Memo1->Lines->Clear();
 	ServerSocket1->Port = 9001;
 	ServerSocket1->Active = false;
 	Memo1->Lines->Add("Server port: 9001; Server don't run");
 	Button1->Caption = "Start";
-	isRunning = true;
+	isRunning = false;
 }
 //---------------------------------------------------------------------------
 
@@ -41,11 +43,13 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	if (ServerSocket1->Active) {
 		ServerSocket1->Active = false;
+		isRunning = false;
 		Memo1->Lines->Add("Server paused");
 		Button1->Caption = "Start";
 	}
 	else {
 		ServerSocket1->Active = true;
+        isRunning = true;
 		Memo1->Lines->Add("Server activated");
 		Button1->Caption = "Stop";
 	}
@@ -58,7 +62,13 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button5Click(TObject *Sender)
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+    EjectUnregisteredUSB();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
 {
 	HDEVINFO deviceInfoSet0 = GetConnectedDevicesHandle();
 	if (deviceInfoSet0 == INVALID_HANDLE_VALUE) {
@@ -85,15 +95,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::Button6Click(TObject *Sender)
-{
-	isRunning = false;
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button3Click(TObject *Sender)
+void __fastcall TForm1::EjectUnregisteredUSB()
 {
 	HDEVINFO deviceInfoSet0 = GetConnectedDevicesHandle();
 	if (deviceInfoSet0 == INVALID_HANDLE_VALUE) {
@@ -127,10 +129,9 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 				Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
 				break;
 			}
-			Sleep(5);
+			Sleep(2);
 		}
 	}
 	SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 }
 //---------------------------------------------------------------------------
-

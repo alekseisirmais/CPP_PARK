@@ -17,11 +17,14 @@
     <Transaction>2018/12/01 19:39:07.000.591,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\win_requests.h=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.h</Transaction>
     <Transaction>2018/12/01 19:39:07.000.591,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\win_requests.cpp=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
     <Transaction>2018/12/01 19:41:24.000.969,=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
-    <Transaction>2018/12/01 19:41:39.000.185,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\db_requests.h=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.h</Transaction>
     <Transaction>2018/12/01 19:41:39.000.185,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\db_requests.cpp=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
+    <Transaction>2018/12/01 19:41:39.000.185,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\db_requests.h=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.h</Transaction>
     <Transaction>2018/12/01 22:13:25.000.301,=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
     <Transaction>2018/12/01 22:13:33.000.424,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\settings.h=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.h</Transaction>
     <Transaction>2018/12/01 22:13:33.000.424,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\settings.cpp=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
+    <Transaction>2018/12/02 23:03:32.693,=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
+    <Transaction>2018/12/02 23:03:45.434,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\thread.h=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.h</Transaction>
+    <Transaction>2018/12/02 23:03:45.434,C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\thread.cpp=C:\Users\rakhi\OneDrive\Рабочий стол\My_Project(rad studio)\server\Unit2.cpp</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Project1.cpp"/>
@@ -42,5 +45,8 @@
     <File Path="settings.cpp"/>
     <File Path="settings.cpp"/>
     <File Path="settings.h"/>
+    <File Path="thread.cpp"/>
+    <File Path="thread.cpp"/>
+    <File Path="thread.h"/>
   </ProjectSortOrder>
 </BorlandProject>

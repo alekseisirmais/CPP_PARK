@@ -42,23 +42,14 @@ object Form1: TForm1
     TabOrder = 2
     OnClick = Button2Click
   end
-  object Button5: TButton
+  object Button4: TButton
     Left = 424
     Top = 168
     Width = 75
     Height = 25
     Caption = 'View USB list'
     TabOrder = 3
-    OnClick = Button5Click
-  end
-  object Button6: TButton
-    Left = 424
-    Top = 264
-    Width = 75
-    Height = 25
-    Caption = 'stop'
-    TabOrder = 4
-    OnClick = Button6Click
+    OnClick = Button4Click
   end
   object Button3: TButton
     Left = 424
@@ -66,7 +57,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = 'update'
-    TabOrder = 5
+    TabOrder = 4
     OnClick = Button3Click
   end
   object ServerSocket1: TServerSocket
