@@ -27,7 +27,10 @@ __fastcall RunThread::RunThread(bool CreateSuspended)
 //---------------------------------------------------------------------------
 void __fastcall RunThread::Execute()
 {
-    FreeOnTerminate = true;
+	FreeOnTerminate = true;
+
+	std::vector<USB> USBList;
+	std::vector<USB> prevUSBList;
 	while (true) {
 		HDEVINFO deviceInfoSet0 = GetConnectedDevicesHandle();
 		if (deviceInfoSet0 == INVALID_HANDLE_VALUE) {
@@ -36,15 +39,63 @@ void __fastcall RunThread::Execute()
 			return;
 		}
 		std::vector<USB> USBList = GetConnectedUsbList(deviceInfoSet0);
+		/*
+        bool isListsEqual = false;
+		if (USBList.size() == prevUSBList.size()) {
+			isListsEqual = true;
+		}
+
+		for (size_t i = 0; i < USBList.size(); i++) {
+			if (std::find(prevUSBList.begin(), prevUSBList.end(), USBList[i]) != prevUSBList.end()) {
+				isListsEqual = false;
+				USB usb = USBList[i];
+				if (USBIsOnDatabase(usb)) {
+					Form1->Memo1->Lines->Add("new device USB detected:");
+					Form1->Memo1->Lines->Add("      devInst: " + IntToStr((int)USBList[i].devInst));
+					Form1->Memo1->Lines->Add("      VID: " + IntToStr(USBList[i].vid));
+					Form1->Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
+				} else {
+					USB usb = USBList[i];
+					if (USBIsOnDatabase(usb)) {
+						continue;
+					}
+					DEVINST DevInstParent = usb.devInst;
+					Form1->Memo1->Lines->Add(DevInstParent);
+					WCHAR VetoNameW[MAX_PATH];
+					PNP_VETO_TYPE VetoType = PNP_VetoTypeUnknown;
+					for ( long tries=1; tries <= 10; tries++ ) {
+						VetoNameW[0] = 0;
+						CONFIGRET res = CM_Request_Device_EjectW(DevInstParent,
+							&VetoType, VetoNameW, MAX_PATH, 0);
+
+						bool bSuccess = ( res==CR_SUCCESS &&
+						VetoType==PNP_VetoTypeUnknown );
+						if ( bSuccess )  {
+							Form1->Memo1->Lines->Add("new device USB detected (ejected):");
+							Form1->Memo1->Lines->Add("      devInst: " + IntToStr((int)USBList[i].devInst));
+							Form1->Memo1->Lines->Add("      VID: " + IntToStr(USBList[i].vid));
+							Form1->Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
+							break;
+						}
+						Sleep(2);
+					}
+                }
+			}
+		}
+
+		if (!isListsEqual) {
+			prevUSBList = USBList;
+		}
+		SetupDiDestroyDeviceInfoList(deviceInfoSet0);
+		Sleep(10);
+		*/
+
 		for (size_t i = 0; i < USBList.size(); i++) {
 			USB usb = USBList[i];
-			int vid = usb.vid;
-			int pid = usb.pid;
 			if (USBIsOnDatabase(usb)) {
 				continue;
 			}
 			DEVINST DevInstParent = usb.devInst;
-			Form1->Memo1->Lines->Add(DevInstParent);
 			WCHAR VetoNameW[MAX_PATH];
 			PNP_VETO_TYPE VetoType = PNP_VetoTypeUnknown;
 			for ( long tries=1; tries <= 10; tries++ ) {
@@ -55,10 +106,6 @@ void __fastcall RunThread::Execute()
 				bool bSuccess = ( res==CR_SUCCESS &&
 				VetoType==PNP_VetoTypeUnknown );
 				if ( bSuccess )  {
-					Form1->Memo1->Lines->Add("USB ejected:");
-					Form1->Memo1->Lines->Add("      devInst: " + IntToStr((int)USBList[i].devInst));
-					Form1->Memo1->Lines->Add("      VID: " + IntToStr(USBList[i].vid));
-					Form1->Memo1->Lines->Add("      PID: " + IntToStr(USBList[i].pid));
 					break;
 				}
 				Sleep(2);
@@ -66,6 +113,7 @@ void __fastcall RunThread::Execute()
 		}
 		SetupDiDestroyDeviceInfoList(deviceInfoSet0);
 		Sleep(10);
+
 	}
 }
 //---------------------------------------------------------------------------

@@ -34,15 +34,19 @@ __published:	// IDE-managed Components
 	TButton *Button1;
 	TButton *Button2;
 	TButton *Button4;
-	TButton *Button3;
+	TEdit *Edit1;
+	TEdit *Edit2;
+	TButton *Button5;
+	TLabel *Label1;
+	TLabel *Label2;
+	TButton *Button6;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
-    void __fastcall Button3Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
+	void __fastcall Button5Click(TObject *Sender);
+	void __fastcall Button6Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MyOnClientConnectEvent(TObject *Sender, TCustomWinSocket *Socket);
-
-	void __fastcall EjectUnregisteredUSB();
 
 private:	// User declarations
 public:		// User declarations

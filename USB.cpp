@@ -43,6 +43,12 @@ bool GetUSBVidAndPid(TCHAR DeviceInstance[], int &vid, int &pid) {
 	return false;
 }
 
+USB USB::operator=(const USB &_usb) {
+	this->vid = _usb.vid;
+	this->pid = _usb.pid;
+    return *this;
+}
+
 const bool USB::operator != (const USB &_usb) {
 	if ((vid != _usb.vid) || (pid != _usb.pid)) {
 		return true;

@@ -15,7 +15,8 @@ struct USB {
 	int vid;
 	int pid;
 
-  	USB(const DEVINST &_devInst, const int &_vid, const int &_pid);
+	USB(const DEVINST &_devInst, const int &_vid, const int &_pid);
+	USB operator=(const USB &_usb);
 	const bool operator != (const USB &_usb);
 	const bool operator == (const USB &_usb);
 };
